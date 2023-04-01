@@ -4,6 +4,12 @@ const cors = require('cors')
 const port = 3003
 const mysql = require('mysql2');
 
+const swagggerUI = require("swagger-ui-express")
+const YAML = require('yamljs')
+
+
+const swaggerDoc = YAML.load("./docs/swagger.yaml")
+
 app.use(cors())
 let corsOptions = {    origin: ["http://localhost:3306"]}
 // Server configuration
@@ -144,5 +150,6 @@ app.post('/data' , async(req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening at deliverjokes.centralindia.cloudapp.azure.com`)
+  console.log('Access http://localhost:8098/doc/ for swagger docs')
 wait();
 })

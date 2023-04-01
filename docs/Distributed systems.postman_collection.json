@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "79b48700-2823-4ae2-a566-923a4f0da9dc",
+		"name": "Distributed systems",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14001399"
+	},
+	"item": [
+		{
+			"name": "Deliver",
+			"item": [
+				{
+					"name": "Get all joke types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://deliverjokes.centralindia.cloudapp.azure.com:3003/getalltypes",
+							"protocol": "http",
+							"host": [
+								"deliverjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "3003",
+							"path": [
+								"getalltypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Random joke",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://deliverjokes.centralindia.cloudapp.azure.com:3003/randomjokes",
+							"protocol": "http",
+							"host": [
+								"deliverjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "3003",
+							"path": [
+								"randomjokes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post to SQL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"type\" : 4,\n\"name\" : \"Malinda\",\n\"joke\" : \"Joke number six \"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://deliverjokes.centralindia.cloudapp.azure.com:3003/data",
+							"protocol": "http",
+							"host": [
+								"deliverjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "3003",
+							"path": [
+								"data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all from SQL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://deliverjokes.centralindia.cloudapp.azure.com:3003/alljokes",
+							"protocol": "http",
+							"host": [
+								"deliverjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "3003",
+							"path": [
+								"alljokes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Submit",
+			"item": [
+				{
+					"name": "Edit Joke",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\n\t\t\"name\": \"Test name\",\n\t\t\"joke\": \"Tharindu Boi\",\n\t\t\"type\": 2\n\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8096/api/submit/editjoke/6427fd939fd55c048dd2b5b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8096",
+							"path": [
+								"api",
+								"submit",
+								"editjoke",
+								"6427fd939fd55c048dd2b5b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit a Joke",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Malinda\",\n\t\"joke\" : \"This is joke number 7\",\n\t\"type\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://submitjokes.centralindia.cloudapp.azure.com:8096/api/submit/",
+							"protocol": "http",
+							"host": [
+								"submitjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "8096",
+							"path": [
+								"api",
+								"submit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Moderate Success",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://submitjokes.centralindia.cloudapp.azure.com:8096/api/submit/moderate/6423994fdc86276ca64b426f",
+							"protocol": "http",
+							"host": [
+								"submitjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "8096",
+							"path": [
+								"api",
+								"submit",
+								"moderate",
+								"6423994fdc86276ca64b426f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://submitjokes.centralindia.cloudapp.azure.com:8096/api/submit/delete/63fb00099dbc892c903972",
+							"protocol": "http",
+							"host": [
+								"submitjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "8096",
+							"path": [
+								"api",
+								"submit",
+								"delete",
+								"63fb00099dbc892c903972"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Moderated get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://submitjokes.centralindia.cloudapp.azure.com:8098/api/moderate/alljokes",
+							"protocol": "http",
+							"host": [
+								"submitjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "8098",
+							"path": [
+								"api",
+								"moderate",
+								"alljokes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gell all active",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://submitjokes.centralindia.cloudapp.azure.com:8096/api/submit/allactive/",
+							"protocol": "http",
+							"host": [
+								"submitjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "8096",
+							"path": [
+								"api",
+								"submit",
+								"allactive",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Moderate",
+			"item": [
+				{
+					"name": "Get one by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://submitjokes.centralindia.cloudapp.azure.com:8096/api/submit/getone/64280bc79fd55c048dd2b671",
+							"protocol": "http",
+							"host": [
+								"submitjokes",
+								"centralindia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"port": "8096",
+							"path": [
+								"api",
+								"submit",
+								"getone",
+								"64280bc79fd55c048dd2b671"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8096/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8096",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\t\t\n\t\t\"username\": \"1234\",\n        \"name\": \"Moderator\",\n        \"phone\": \"0774662797\",\n        \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://nodemoderatejokes.ftehepdtcpfgf5f7.centralindia.azurecontainer.io:8098/api/moderate/accept/641ecf4560dc317ce8201e7b",
+							"protocol": "https",
+							"host": [
+								"nodemoderatejokes",
+								"ftehepdtcpfgf5f7",
+								"centralindia",
+								"azurecontainer",
+								"io"
+							],
+							"port": "8098",
+							"path": [
+								"api",
+								"moderate",
+								"accept",
+								"641ecf4560dc317ce8201e7b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://nodemoderatejokes.ftehepdtcpfgf5f7.centralindia.azurecontainer.io:8098/api/moderate/reject/641ecf4560dc317ce8201e7b",
+							"protocol": "https",
+							"host": [
+								"nodemoderatejokes",
+								"ftehepdtcpfgf5f7",
+								"centralindia",
+								"azurecontainer",
+								"io"
+							],
+							"port": "8098",
+							"path": [
+								"api",
+								"moderate",
+								"reject",
+								"641ecf4560dc317ce8201e7b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,196 @@
+openapi: 3.0.0
+info:
+  title: Distributed systems
+  version: 1.0.0
+servers:
+  - url: http://deliverjokes.centralindia.cloudapp.azure.com:3003
+  - url: http://localhost:8096
+  - url: http://submitjokes.centralindia.cloudapp.azure.com:8096
+  - url: http://submitjokes.centralindia.cloudapp.azure.com:8098
+  - url: http://localhost:8098
+  - url: >-
+      https://nodemoderatejokes.ftehepdtcpfgf5f7.centralindia.azurecontainer.io:8098
+tags:
+  - name: Deliver
+  - name: Submit
+  - name: Moderate
+paths:
+  /getalltypes:
+    get:
+      tags:
+        - Deliver
+      summary: Get all joke types
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /randomjokes:
+    get:
+      tags:
+        - Deliver
+      summary: Random joke
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /data:
+    post:
+      tags:
+        - Deliver
+      summary: Post to SQL
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                type: 4
+                name: Malinda
+                joke: 'Joke number six '
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alljokes:
+    get:
+      tags:
+        - Deliver
+      summary: Get all from SQL
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/submit/editjoke/6427fd939fd55c048dd2b5b6:
+    put:
+      tags:
+        - Submit
+      summary: Edit Joke
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Test name
+                joke: Tharindu Boi
+                type: 2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/submit/:
+    post:
+      tags:
+        - Submit
+      summary: Submit a Joke
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Malinda
+                joke: This is joke number 7
+                type: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/submit/moderate/6423994fdc86276ca64b426f:
+    put:
+      tags:
+        - Submit
+      summary: Moderate Success
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/submit/delete/63fb00099dbc892c903972:
+    delete:
+      tags:
+        - Submit
+      summary: Delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/moderate/alljokes:
+    get:
+      tags:
+        - Submit
+      summary: Moderated get all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/submit/allactive/:
+    get:
+      tags:
+        - Submit
+      summary: Gell all active
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/submit/getone/64280bc79fd55c048dd2b671:
+    get:
+      tags:
+        - Moderate
+      summary: Get one by ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/auth/signup:
+    post:
+      tags:
+        - Moderate
+      summary: Sign Up
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: '1234'
+                name: Moderator
+                phone: '0774662797'
+                password: '1234'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/moderate/accept/641ecf4560dc317ce8201e7b:
+    get:
+      tags:
+        - Moderate
+      summary: Accept
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/moderate/reject/641ecf4560dc317ce8201e7b:
+    get:
+      tags:
+        - Moderate
+      summary: Reject
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
